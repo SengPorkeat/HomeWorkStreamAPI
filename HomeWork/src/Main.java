@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         CourseServiceImp service = new CourseServiceImp();
         Menu.view();
         while (true) {
@@ -49,10 +49,15 @@ public class Main {
                         }
                     }
                     case 0,99 -> System.exit(0);
+                    default -> throw new UserNotFound("Invalid Input ["+op+"] , please try again!");
                 }
-            }catch (InputMismatchException inputMismatchException){
+            }catch (InputMismatchException | UserNotFound userNotFound){
                 System.out.println("=".repeat(55));
-                System.out.println("Invalid input, please try again!");
+                if (userNotFound.getMessage()==null){
+                    System.out.println("Invalid input, please try again!");
+                }else {
+                    System.out.println(userNotFound.getMessage());
+                }
                 System.out.println("=".repeat(55));
             }
         }

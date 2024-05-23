@@ -15,7 +15,7 @@ import java.util.*;
 public class CourseServiceImp implements CourseService{
 
     @Override
-    public void addNewCourse() {
+    public void addNewCourse(){
         CourseRepository.getCourses();
     }
 

@@ -9,7 +9,7 @@ import java.util.*;
 public class CourseRepository {
     static List<Course> courses = new ArrayList<>();
 
-    public static void getCourses() {
+    public static void getCourses(){
         CourseService courseService = new CourseServiceImp();
         Random random = new Random();
         String date = courseService.localDate();
